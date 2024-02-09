@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float xSpeed = 10f;
-
+    public float XSpeed => xSpeed;
     [SerializeField] private float jumpForce = 880f;
     [SerializeField] private float groundCheckRadius = 0.1f;
     [SerializeField] private LayerMask groundLayer;
@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private float xMoveInput;
+    private bool isGrounded;
+    public bool IsGrounded => isGrounded;
 
     private bool shouldJump;
 
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Collider2D collider = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
-        bool isGrounded = collider != null;
+        isGrounded = collider != null;
         rb.velocity = new Vector2(xMoveInput, rb.velocity.y);
         if (shouldJump)
         {
