@@ -7,6 +7,8 @@ TagManager:
   - Moving Platform
   - Hazard
   - Checkpoint
+  - Collectible
+  - Baseball
   layers:
   - Default
   - TransparentFX

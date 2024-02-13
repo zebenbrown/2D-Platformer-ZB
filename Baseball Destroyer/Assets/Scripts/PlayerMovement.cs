@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
-        isGrounded = collider != null;
+        Collider2D cd = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
+        isGrounded = cd != null;
         rb.velocity = new Vector2(xMoveInput, rb.velocity.y);
         if (shouldJump)
         {
