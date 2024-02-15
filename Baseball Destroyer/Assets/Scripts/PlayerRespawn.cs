@@ -7,13 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    
     [SerializeField] private TextMeshProUGUI playerLivesText;
     [SerializeField] private Transform respawn;
     private int playerLives = 3;
     [SerializeField] private string sceneName;
     private bool isHit = false;
-    private int Overlap = 0;
 
     private void Update()
     {
@@ -22,6 +20,7 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Player enters a hazard trigger
         if (other.gameObject.CompareTag("Hazard"))
         {
             if (!isHit)
@@ -30,38 +29,49 @@ public class PlayerRespawn : MonoBehaviour
                 
                 //Respawn
                 transform.position = respawn.transform.position;
-                playerLives--;
+                playerLives -= TakeDamage(1);
                 UpdateLives();
                 
                 StartCoroutine(HitCooldown());
             }
-            
-            if (playerLives < 1)
-            {
-               LoadScene();
-            }
         }
-
+        //Player enters a checkpoint
         else if (other.gameObject.CompareTag("Checkpoint"))
         {
             respawn = other.transform;
         }
+        //Player 
+        else if (other.gameObject.CompareTag("Helmet"))
+        {
+            playerLives -= TakeDamage(1);
+            UpdateLives();
+            Destroy(other.gameObject);
+        }
+        if (playerLives < 1)
+        {
+            LoadScene();
+        }
     }
-
-    void UpdateLives()
+    //Updates the lives text
+    public void UpdateLives()
     {
         playerLivesText.text = "Lives: " + playerLives.ToString();
     }
-
+    //Loads a different scene
     void LoadScene()
     {
         SceneManager.LoadScene(sceneName);
     }
-
+    //Creates a delay for when the player can take damage again
     IEnumerator HitCooldown()
     {
         yield return new WaitForSeconds(0.1f);
         isHit = false;
 
+    }
+
+    public int TakeDamage(int damage)
+    {
+        return damage;
     }
 }
