@@ -5521,6 +5521,7 @@ GameObject:
   - component: {fileID: 784856848}
   - component: {fileID: 784856850}
   - component: {fileID: 784856851}
+  - component: {fileID: 784856852}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -5631,9 +5632,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnLocation: {fileID: 1966758069}
   helmetPrefab: {fileID: 8442742203779179257, guid: f1b4a1c1258c5418bbe0a6d23091c8e0, type: 3}
-  layersToHit:
+  playerLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  render: {fileID: 784856852}
+  maxDistance: 20
+--- !u!120 &784856852
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784856846}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 60, y: 0, z: 0}
+  - {x: 50, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.014747594
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &801468141
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,7 +7101,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501310305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a37d7dd32a6da4850a5c0b0ef2facc79, type: 2}
   m_CullingMode: 0
@@ -7404,17 +7511,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.75336546, y: -0.71893185}
-      - {x: -0.5433655, y: -0.57893187}
-      - {x: -0.29336548, y: -0.3689319}
-      - {x: 0.07663452, y: -0.11893188}
-      - {x: 0.3866345, y: 0.041068114}
-      - {x: 0.6366345, y: 0.2010681}
-      - {x: 0.8766345, y: 0.3810681}
-      - {x: 0.9466345, y: 0.4110681}
-      - {x: 1.2166345, y: 0.5710681}
-      - {x: 1.3466345, y: 0.7210681}
-      - {x: 1.4066344, y: 0.8310681}
+    - - {x: -0.42461222, y: -1.03425}
+      - {x: -0.17283791, y: -0.8520116}
+      - {x: 0.07142621, y: -0.6755916}
+      - {x: 0.40094522, y: -0.44583046}
+      - {x: 0.6822802, y: -0.25131658}
+      - {x: 0.9552128, y: -0.058206677}
+      - {x: 1.250788, y: 0.11477363}
+      - {x: 1.5077538, y: 0.28563482}
+      - {x: 1.6751451, y: 0.39404058}
+      - {x: 1.6063689, y: 0.7532359}
+      - {x: 1.5127522, y: 0.8598473}
       - {x: 1.4066344, y: 0.9810681}
       - {x: 1.3866345, y: 1.0210681}
       - {x: 1.2666345, y: 1.1210681}
@@ -7446,7 +7553,7 @@ PolygonCollider2D:
       - {x: -1.0933654, y: -1.1189319}
       - {x: -1.0233655, y: -1.0289319}
       - {x: -1.0033654, y: -0.96893185}
-      - {x: -0.99336547, y: -0.89893186}
+      - {x: -0.70789844, y: -1.2364767}
   m_UseDelaunayMesh: 0
 --- !u!114 &1612365162
 MonoBehaviour:
