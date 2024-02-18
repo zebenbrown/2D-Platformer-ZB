@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private GameObject helmetPrefab;
     
     private bool canFire = true;
+
+    public bool playerDetected;
     //[SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask playerLayerMask;
     private RaycastHit2D hit2D;
@@ -31,6 +33,7 @@ public class Projectile : MonoBehaviour
 
         if (hit2D.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            playerDetected = true;
                 if (canFire)
                 {
                              canFire = false;

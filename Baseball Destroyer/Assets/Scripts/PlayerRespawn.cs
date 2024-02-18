@@ -40,11 +40,16 @@ public class PlayerRespawn : MonoBehaviour
         {
             respawn = other.transform;
         }
-        //Player 
+        //Player collides with a helmet
         else if (other.gameObject.CompareTag("Helmet"))
         {
             playerLives -= TakeDamage(1);
             UpdateLives();
+            Destroy(other.gameObject);
+        }
+        //Player enters the fielders trigger
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
             Destroy(other.gameObject);
         }
         if (playerLives < 1)
