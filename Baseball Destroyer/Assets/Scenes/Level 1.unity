@@ -5005,7 +5005,7 @@ Transform:
   m_GameObject: {fileID: 505833679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.003, y: -2.703, z: 0}
+  m_LocalPosition: {x: -5.9, y: -2.9, z: 0}
   m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5595,7 +5595,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   render: {fileID: 784856852}
-  maxDistance: 30
+  maxDistance: 15
 --- !u!120 &784856852
 LineRenderer:
   serializedVersion: 2
@@ -5604,7 +5604,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784856846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

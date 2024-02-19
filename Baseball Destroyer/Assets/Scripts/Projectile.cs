@@ -22,22 +22,22 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 endPoint = transform.position + transform.right * -maxDistance;
-        hit2D = Physics2D.BoxCast(transform.position, Vector2.one * maxDistance, 1, endPoint, maxDistance);
+        hit2D = Physics2D.Raycast(transform.position, Vector2.left, maxDistance, playerLayerMask);
         //Enemy can throw helmets
         if (canFire)
         {
             //Box cast detected player
-            if (hit2D.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (hit2D.collider != null && hit2D.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 //Player Detected
                 playerDetected = true;
+                //Fire Helmets
+                Fire();
                 //Cannot fire helmets
                 canFire = false;
-                //Fire Helemts
-                    Fire();
-                    //Start Helmet throwing delay
-                    StartCoroutine(HelmetSpawnDelay());
-                    Debug.Log("Hit player");
+                //Start Helmet throwing delay
+                StartCoroutine(HelmetSpawnDelay()); 
+                Debug.Log("Hit player");
             }
             
         }
