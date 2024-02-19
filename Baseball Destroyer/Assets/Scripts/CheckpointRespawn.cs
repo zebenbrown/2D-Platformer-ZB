@@ -6,13 +6,14 @@ using UnityEngine;
 public class CheckpointRespawn : MonoBehaviour
 {
    [SerializeField] private Transform respawn;
+   //[SerializeField] private Animator animator;
+   
    
 
    private void OnTriggerEnter2D(Collider2D other)
    {
       if (other.gameObject.CompareTag("Checkpoint"))
       {
-         GetComponent<Animator>().SetTrigger("OnPlayerEntry");
          respawn = other.transform;
       }
    }

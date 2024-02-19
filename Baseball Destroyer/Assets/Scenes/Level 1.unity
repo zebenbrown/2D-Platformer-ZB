@@ -5595,7 +5595,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   render: {fileID: 784856852}
-  maxDistance: 20
+  maxDistance: 30
 --- !u!120 &784856852
 LineRenderer:
   serializedVersion: 2
@@ -5604,7 +5604,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784856846}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5648,8 +5648,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.014747594
-        value: 1
+        time: 0
+        value: 0.38461494
         inSlope: 0
         outSlope: 0
         tangentMode: 0

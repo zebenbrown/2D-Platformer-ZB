@@ -22,36 +22,29 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 endPoint = transform.position + transform.right * -maxDistance;
-        hit2D = Physics2D.BoxCast(transform.position, Vector2.one * maxDistance, 0, endPoint, maxDistance);
-        
-        //if (hit2D.collider != null)
-        //{
-        //    endPoint = hit2D.collider;
-        //}hit2D collider
-        //render.positionCount = 2;
-        //render.SetPositions(new Vector3[] {transform.position, endPoint});
-
-        if (hit2D.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        hit2D = Physics2D.BoxCast(transform.position, Vector2.one * maxDistance, 1, endPoint, maxDistance);
+        //Enemy can throw helmets
+        if (canFire)
         {
-            playerDetected = true;
-                if (canFire)
-                {
-                             canFire = false;
-                                     
-                                 if (hit2D)
-                                 {
-                                     Fire();
-                                     StartCoroutine(HelmetSpawnDelay());
-                                 }
-                }
-                Debug.Log("Hit player");
+            //Box cast detected player
+            if (hit2D.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                //Player Detected
+                playerDetected = true;
+                //Cannot fire helmets
+                canFire = false;
+                //Fire Helemts
+                    Fire();
+                    //Start Helmet throwing delay
+                    StartCoroutine(HelmetSpawnDelay());
+                    Debug.Log("Hit player");
+            }
+            
         }
-        
-        //If enemy can fire
-           
+
     }
     
-    //Function for Helmet instantitation
+    //Function for Helmet instantiation
     private void Fire()
     {
         Instantiate(helmetPrefab, spawnLocation.position, spawnLocation.rotation);

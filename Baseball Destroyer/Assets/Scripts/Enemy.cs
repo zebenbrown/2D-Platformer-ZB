@@ -32,7 +32,13 @@ public class Enemy : MonoBehaviour
          if (currentPoint == movePoints[0])
          {
             GetComponent<SpriteRenderer>().flipX = true;
+            //If player in box cast flip enemy
             if (projectile.playerDetected)
+            {
+               GetComponent<SpriteRenderer>().flipX = false;
+            }
+            
+            else if (projectile.playerDetected)
             {
                GetComponent<SpriteRenderer>().flipX = false;
             }
