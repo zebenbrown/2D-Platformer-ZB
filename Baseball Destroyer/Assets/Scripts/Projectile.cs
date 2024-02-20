@@ -16,13 +16,14 @@ public class Projectile : MonoBehaviour
     //[SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask playerLayerMask;
     private RaycastHit2D hit2D;
-    [SerializeField] private LineRenderer render;
+    //[SerializeField] private LineRenderer render;
     [SerializeField] private float maxDistance = 10f;
     
     private void FixedUpdate()
     {
         Vector3 endPoint = transform.position + transform.right * -maxDistance;
-        hit2D = Physics2D.Raycast(transform.position, Vector2.left, maxDistance, playerLayerMask);
+        Vector3 directionToPlayer = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position);
+        hit2D = Physics2D.Raycast(transform.position, directionToPlayer, maxDistance, playerLayerMask);
         //Enemy can throw helmets
         if (canFire)
         {
