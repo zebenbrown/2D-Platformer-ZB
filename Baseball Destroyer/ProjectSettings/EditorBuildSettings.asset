@@ -6,33 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: 1fe329667b1e84d35a123b43da84d257
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: e05d36786852247dfb6215b3924edd39
   - enabled: 1
     path: Assets/Scenes/Completed Level 1.unity
     guid: 45039892b7e4a48c9967001c5ce687c2
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
-    guid: 91627ebe36d11462fa44a74dca1d86cc
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Completed Level 2.unity
-    guid: 1851dff1553ba4cd0836cce0cd7cac8a
+    guid: 8304028c5ac414d72a2088f73e05f20a
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
-    guid: 181fd2cbdd5d241de831d362b21f2ad4
+    guid: 5967b835b35d54ec2a49d13e000ae09e
   - enabled: 1
     path: Assets/Scenes/Completed Level 3.unity
-    guid: d3634238ce7614e479f8a4b04d046b50
-  - enabled: 1
+    guid: 3f7094fe5f37d4eca8180bd13a01b2df
+  - enabled: 0
     path: Assets/Scenes/Level 4.unity
     guid: 4930514fbb1174ea6ab4a45b0b8ad2ee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Completed Level 4.unity
-    guid: e715637e99a6e4648a99ab47d3956f3e
+    guid: b83b652811a04442bbcb6455637c800f
   - enabled: 1
-    path: Assets/Scenes/Game Over.unity
+    path: Assets/Scenes/Game Over Level 1.unity
     guid: 53ab22051e1687343b53f8439c00f485
   - enabled: 1
+    path: Assets/Scenes/Game Over Level 2.unity
+    guid: db74ae17fb208476b885860fed1ee6e8
+  - enabled: 1
+    path: Assets/Scenes/Game Over Level 3.unity
+    guid: d48b97bbab6b64263b8eb7e571dd5d59
+  - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: 145e8a3e3aa224fae874078e8081d38f
+  - enabled: 1
     path: Assets/Scenes/Game Complete.unity
-    guid: d537945ea43774d93bf05e2824ad3010
+    guid: 0ce9a05fe6be94a498f1cfd64ef75263
   m_configObjects: {}
